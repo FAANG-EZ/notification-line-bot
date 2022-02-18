@@ -44,4 +44,4 @@ jobs:
             docker login --username=${{ secrets.DOCKERHUB_USERNAME }} --password=${{ secrets.DOCKERHUB_TOKEN }}
             docker pull ${{ secrets.DOCKERHUB_REPO }}:latest
             docker rm -f -v faang-ez-line-bot || true
-            docker run --detach --name faang-ez-line-bot --env "VIRTUAL_HOST=${{ secrets.VIRTUAL_HOST }}" --env "LETSENCRYPT_HOST=${{ secrets.VIRTUAL_HOST }}" --expose 80 ${{ secrets.DOCKERHUB_REPO }} python ./main.py
+            docker run --detach --name faang-ez-line-bot --env "VIRTUAL_HOST=${{ secrets.VIRTUAL_HOST }}" --env "LETSENCRYPT_HOST=${{ secrets.VIRTUAL_HOST }}" --env "LINE_CHANNEL_ACCESS_TOKEN={{ secrets.LINE_CHANNEL_ACCESS_TOKEN }}" --env={{ secrets.LINE_CHANNEL_SECRET }} --expose 80 ${{ secrets.DOCKERHUB_REPO }} python ./main.py
