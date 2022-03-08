@@ -37,7 +37,7 @@ def daily_joke(app):
     scheduler = APScheduler()
     scheduler.init_app(app)
 
-    @scheduler.task('cron', id='write_log', hour=09, minute=30)
+    @scheduler.task('cron', id='write_log', hour=9, minute=30)
     def write_log():
         group_id = os.getenv('GROUP_ID')
         line_bot_api.push_message(group_id, TextSendMessage(text='各位社畜早安，早餐吃了嗎？還有多少 issues 沒解？今天會不會又噴什麼垃圾 bug？為你們送上今天的笑話，祝你們今天上班愉快。'))
