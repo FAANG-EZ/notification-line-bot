@@ -1,32 +1,17 @@
-import os
-import sys
-
 import jokekappa
 
 from flask import Flask
 from flask_apscheduler import APScheduler
 
-from linebot import (
-    LineBotApi, WebhookHandler
-)
-from linebot.exceptions import (
-    InvalidSignatureError
-)
+from helper.linebot_init import line_bot
+
 from linebot.models import (
     MessageEvent, TextMessage, TextSendMessage,
 )
 
-channel_access_token = os.getenv('LINE_CHANNEL_ACCESS_TOKEN')
-channel_secret = os.getenv('LINE_CHANNEL_SECRET')
-if not channel_access_token:
-    print('Specify LINE_CHANNEL_ACCESS_TOKEN as environment variable.')
-    sys.exit(1)
-if not channel_secret:
-    print('Specify LINE_CHANNEL_SECRET as environment variable.')
-    sys.exit(1)
-
-line_bot_api = LineBotApi(channel_access_token)
-handler = WebhookHandler(channel_secret)
+line_bot = line_bot()
+line_bot_api = line_bot.line_bot_api
+handler = line_bot.handler
 
 class Config:
     SCHEDULER_API_ENABLED = True
