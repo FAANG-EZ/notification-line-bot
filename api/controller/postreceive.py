@@ -1,3 +1,5 @@
+import os
+
 from flask import Flask, request, abort
 
 from helper.linebot_init import line_bot
