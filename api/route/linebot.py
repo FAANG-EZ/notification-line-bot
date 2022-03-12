@@ -9,7 +9,7 @@ from api.controller.postreceive import postreceive_controller
 
 
 app = Flask(__name__)
-webhook = Webhook(app, secret='mTPwE4-tcT-XN2X') # Defines '/postreceive' endpoint
+webhook = Webhook(app, secret=os.getenv('WEBHOOK_SECRET')) # Defines '/postreceive' endpoint
 
 @app.route("/callback", methods=['POST'])
 def callback():
