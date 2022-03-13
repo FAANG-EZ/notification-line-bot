@@ -1,3 +1,4 @@
+import os
 import jokekappa
 
 from flask import Flask
