@@ -35,7 +35,7 @@ class callback_controller:
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     message = text=event.message.text
-    if re.match('^說個笑話聽聽$',message):
+    if re.match('^說個笑話$',message):
         joke = jokekappa.get_joke()
 
         line_bot_api.reply_message(
