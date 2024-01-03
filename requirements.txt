@@ -7,3 +7,5 @@ jokekappa
 Flask-APScheduler
 
 github_webhook
+
+requests
