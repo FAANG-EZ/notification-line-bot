@@ -101,7 +101,7 @@ def daily_job(app):
 
         # Joke
         joke = jokekappa.get_joke()
-        text_content = '各位社畜早安，早餐吃了嗎？還有多少 issues 沒解？今天會不會又噴什麼垃圾 bug？為你們送上今天的笑話以及 iThome 前十二篇文章，祝你們今天偷薪水愉快。\n\n' + joke
+        text_content = '各位社畜早安，早餐吃了嗎？還有多少 issues 沒解？今天會不會又噴什麼垃圾 bug？為你們送上今天的笑話以及 iThome 前十二篇文章，祝你們今天偷薪水愉快。\n\n' + joke['content']
 
         line_bot_api.push_message(group_id, TextSendMessage(text=text_content))
 
@@ -120,7 +120,7 @@ def daily_job(app):
 
         # Joke
         joke = jokekappa.get_joke()
-        text_content = '各位放假仔早安，為你們送上今天的笑話以及 iThome 前十二篇文章，祝你們今天放假愉快。\n\n' + joke
+        text_content = '各位放假仔早安，為你們送上今天的笑話以及 iThome 前十二篇文章，祝你們今天放假愉快。\n\n' + joke['content']
 
         line_bot_api.push_message(group_id, TextSendMessage(text=text_content))
 
